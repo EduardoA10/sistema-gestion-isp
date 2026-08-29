@@ -1,0 +1,379 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y RESET (BOX MODEL)
+   ========================================================================== */
+
+:root {
+    /* Paleta Institucional */
+    --color-primario: #0b2545;       /* Azul Tecnológico Profundo */
+    --color-panel: #13315c;          /* Azul Oscuro de Soporte */
+    --color-acento: #00b4d8;         /* Cyan de Conectividad */
+    --color-fibra: #10b981;          /* Verde Fibra Óptica */
+    --color-alerta: #f59e0b;         /* Ámbar de Advertencia */
+    
+    /* Superficies y Neutros */
+    --color-fondo: #f8fafc;          /* Gris Neutro Claro */
+    --color-tarjeta: #ffffff;        /* Blanco Puro */
+    --color-texto: #1e293b;          /* Carbón de Alto Contraste */
+    --color-texto-suave: #64748b;    /* Gris de Soporte */
+    --color-borde: #e2e8f0;
+
+    /* Tipografías y Medidas */
+    --fuente-base: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --espaciado-pequeno: 0.8rem;
+    --espaciado-medio: 1.6rem;
+    --espaciado-grande: 2.4rem;
+    --radio-borde: 0.8rem;
+    --sombra-suave: 0 4px 12px rgba(11, 37, 69, 0.08);
+}
+
+/* Reset de Modelo de Caja y Tipografía Base Accesible (1rem = 10px) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* Facilita el cálculo: 1.6rem = 16px */
+}
+
+body {
+    font-family: var(--fuente-base);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   2. CABECERA Y NAVEGACIÓN (FLEXBOX UNIDIMENSIONAL)
+   ========================================================================== */
+
+.header-principal {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    padding: var(--espaciado-medio) var(--espaciado-grande);
+    box-shadow: var(--sombra-suave);
+}
+
+.header-contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espaciado-medio);
+}
+
+.logo-titulo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo-titulo span {
+    color: var(--color-acento);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: var(--espaciado-medio);
+}
+
+.nav-menu a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: var(--espaciado-pequeno) 1.2rem;
+    border-radius: var(--radio-borde);
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-menu a:hover,
+.nav-menu a.nav-activo {
+    color: #ffffff;
+    background-color: rgba(0, 180, 216, 0.2);
+    border-bottom: 2px solid var(--color-acento);
+}
+
+/* ==========================================================================
+   3. CONTENEDOR PRINCIPAL Y SECCIONES
+   ========================================================================== */
+
+.main-contenedor {
+    max-width: 120rem;
+    width: 90vw; /* Uso de Viewport Width */
+    margin: var(--espaciado-grande) auto;
+    flex: 1; /* Ocupa el espacio restante empujando el footer */
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado-medio);
+    border-left: 4px solid var(--color-fibra);
+    padding-left: var(--espaciado-pequeno);
+}
+
+/* ==========================================================================
+   4. PANEL DE MÉTRICAS (CSS GRID BIDIMENSIONAL)
+   ========================================================================== */
+
+.seccion-metricas {
+    margin-bottom: var(--espaciado-grande);
+}
+
+.grid-metricas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espaciado-medio);
+}
+
+.tarjeta-metrica {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-medio);
+    box-shadow: var(--sombra-suave);
+    border-top: 3px solid var(--color-acento);
+}
+
+.tarjeta-metrica dt {
+    font-size: 1.3rem;
+    color: var(--color-texto-suave);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: var(--espaciado-pequeno);
+}
+
+.tarjeta-metrica dd {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.estado-ok {
+    color: var(--color-fibra);
+}
+
+.estado-alerta {
+    color: var(--color-alerta);
+}
+
+/* ==========================================================================
+   5. TABLAS DE DATOS
+   ========================================================================== */
+
+.seccion-tabla {
+    margin-bottom: var(--espaciado-grande);
+}
+
+.tabla-contenedor {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    overflow-x: auto;
+    box-shadow: var(--sombra-suave);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+caption {
+    font-size: 1.3rem;
+    color: var(--color-texto-suave);
+    padding: var(--espaciado-pequeno) var(--espaciado-medio);
+    text-align: left;
+    font-style: italic;
+    background-color: #f1f5f9;
+}
+
+th, td {
+    padding: 1.2rem var(--espaciado-medio);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+th {
+    background-color: #f8fafc;
+    color: var(--color-primario);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 2rem;
+}
+
+.badge-activo {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #065f46;
+}
+
+.badge-alerta {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #92400e;
+}
+
+/* ==========================================================================
+   6. FORMULARIOS SEMÁNTICOS (CLIENTES Y ALTA)
+   ========================================================================== */
+
+.seccion-formulario {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-grande);
+    box-shadow: var(--sombra-suave);
+    margin-bottom: var(--espaciado-grande);
+}
+
+fieldset {
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-medio);
+    margin-bottom: var(--espaciado-grande);
+}
+
+legend {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primario);
+    padding: 0 var(--espaciado-pequeno);
+}
+
+.grupo-campo {
+    margin-bottom: var(--espaciado-medio);
+}
+
+label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.4rem;
+    font-family: inherit;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    background-color: #f8fafc;
+    color: var(--color-texto);
+    transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    background-color: #ffffff;
+}
+
+.acciones-formulario {
+    display: flex;
+    gap: var(--espaciado-medio);
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s ease;
+}
+
+input[type="submit"] {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+input[type="reset"] {
+    background-color: #e2e8f0;
+    color: var(--color-texto);
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   7. PIE DE PÁGINA
+   ========================================================================== */
+
+.footer-principal {
+    background-color: var(--color-panel);
+    color: #cbd5e1;
+    text-align: center;
+    padding: var(--espaciado-medio);
+    font-size: 1.4rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .grid-metricas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-contenedor {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--espaciado-pequeno);
+    }
+
+    .nav-menu a {
+        display: block;
+        width: 100%;
+    }
+
+    .grid-metricas {
+        grid-template-columns: 1fr;
+    }
+
+    .main-contenedor {
+        width: 95vw;
+        margin: var(--espaciado-medio) auto;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+    }
+}
