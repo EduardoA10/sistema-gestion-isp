@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema ISP - Gestión de Clientes</title>
+</head>
+<body>
+
+    <!-- Cabecera del sistema y navegación global -->
+    <header>
+        <h1>ISP Panel de Control</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="soporte.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Módulo 1: Listado de abonados existentes -->
+        <section>
+            <h2>Nómina de Abonados Activos</h2>
+            <table>
+                <caption>Registro general de clientes y estado de conexión</caption>
+                <tr>
+                    <th>N° Cliente</th>
+                    <th>Nombre y Apellido</th>
+                    <th>DNI / CUIT</th>
+                    <th>Plan Contratado</th>
+                    <th>IP Asignada</th>
+                    <th>Estado</th>
+                </tr>
+                <tr>
+                    <td>1001</td>
+                    <td>Juan Manuel Gómez</td>
+                    <td>32456789</td>
+                    <td>Fibra Óptica 100 Mbps</td>
+                    <td>192.168.10.45</td>
+                    <td>Habilitado</td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>Lucía Fernández</td>
+                    <td>28911234</td>
+                    <td>Fibra Óptica 300 Mbps</td>
+                    <td>192.168.10.82</td>
+                    <td>Habilitado</td>
+                </tr>
+                <tr>
+                    <td>1003</td>
+                    <td>Carlos Morales</td>
+                    <td>35678123</td>
+                    <td>Inalámbrico 50 Mbps</td>
+                    <td>192.168.20.12</td>
+                    <td>Suspendido</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Módulo 2: Formulario para registrar un nuevo cliente -->
+        <section>
+            <h2>Alta de Nuevo Cliente</h2>
+            <form action="#" method="post">
+                
+                <fieldset>
+                    <legend>Datos Personales y de Contacto</legend>
+                    
+                    <p>
+                        <label for="nombre">Nombre y Apellido:</label><br>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Roberto Sánchez" required>
+                    </p>
+                    
+                    <p>
+                        <label for="dni">DNI / CUIT:</label><br>
+                        <input type="number" id="dni" name="dni" placeholder="Sin puntos ni guiones" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Correo Electrónico:</label><br>
+                        <input type="email" id="email" name="email" placeholder="cliente@correo.com" required>
+                    </p>
+
+                    <p>
+                        <label for="telefono">Teléfono de Contacto:</label><br>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Cod. área + número">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Detalles de la Instalación y Servicio</legend>
+                    
+                    <p>
+                        <label for="direccion">Dirección de Instalación:</label><br>
+                        <input type="text" id="direccion" name="direccion" placeholder="Calle, número, barrio" required>
+                    </p>
+
+                    <p>
+                        <label for="plan">Plan de Internet:</label><br>
+                        <select id="plan" name="plan" required>
+                            <option value="" disabled selected>Seleccione un plan...</option>
+                            <option value="fibra_100">Fibra Óptica 100 Mbps</option>
+                            <option value="fibra_300">Fibra Óptica 300 Mbps</option>
+                            <option value="fibra_600">Fibra Óptica 600 Mbps</option>
+                            <option value="radio_50">Enlace Inalámbrico 50 Mbps</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="ip">IP Asignada (Opcional):</label><br>
+                        <input type="text" id="ip" name="ip" placeholder="Ej. 192.168.10.100">
+                    </p>
+
+                    <p>
+                        <label>
+                            <input type="checkbox" name="router_propio" value="si">
+                            El cliente posee equipo / router propio
+                        </label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <input type="submit" value="Guardar Abonado">
+                    <input type="reset" value="Limpiar Campos">
+                </p>
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Sistema de Gestión ISP. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
