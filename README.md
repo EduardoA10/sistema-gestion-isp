@@ -4,50 +4,50 @@ Proyecto desarrollado para la cátedra de **Programación 4**.
 
 ---
 
-## 👥 Integrantes del Grupo
+## Integrantes del Grupo
 * **Eduardo Albarracín**
 * **Alexis Lencina**
 
 ---
 
-## 📌 Descripción del Proyecto
-Evolución de la maqueta estructural de ISP hacia una interfaz web completa, responsive y moderna, aplicando estándares de CSS3, variables globales y optimización para motores de búsqueda (SEO).
+## Descripción del Proyecto
+Evolución de la maqueta estructural del sistema ISP hacia una interfaz web completa, responsive y moderna, aplicando estándares de CSS3, variables globales y optimización para motores de búsqueda (SEO).
 
 ---
 
-## 🛠️ Tecnologías y Metodologías Utilizadas
-* **HTML5 Semántico:** Estructura limpia libre de divs innecesarios.
-* **CSS3 Moderno:** Flexbox, CSS Grid, Box Model (`border-box`), y unidades relativas (`rem`, `%`, `vh`, `vw`, `fr`).
-* **Control de Versiones:** Flujo Git con ramas `main`, `dev` y `feature/*` mediante Pull Requests.
+## Tecnologías Utilizadas
+- **HTML5 Semántico** (`header`, `nav`, `main`, `section`, `article`, `dl`, `table`, `form`, `footer`).
+- **CSS3** (Flexbox, CSS Grid, Variables CSS, Box Model, Media Queries).
+- **Git y GitHub** para control de versiones mediante ramas y Pull Requests.
 
 ---
 
-## 📐 Decisiones de Diseño y Arquitectura CSS
+## Decisiones de Diseño y Arquitectura CSS
 
-### 1. Variables CSS (`:root`)
-Se centralizó la paleta de colores y medidas en el selector raíz:
-* `--color-primario` (`#0b2545`): Azul tecnológico de cabecera y títulos.
-* `--color-panel` (`#13315c`): Superficie profunda para pie de página.
-* `--color-acento` (`#00b4d8`): Cyan de interactividad y enlaces.
-* `--color-fibra` (`#10b981`): Verde institucional para métricas operativas y estados activos.
+### 1. ¿Qué variables CSS creamos?
+Definidas en `:root` para garantizar coherencia visual:
+- **Colores:** `--color-primary` (`#0a4d68`), `--color-secondary` (`#088395`), `--color-accent` (`#05bfdb`), `--color-fibra` (`#10b981`), `--color-bg` (`#f4f6f7`), `--color-text` (`#1e1e1e`).
+- **Tipografía:** `--font-main` (`Segoe UI, Arial, sans-serif`).
+- **Espaciados:** `--spacing-sm` (`0.5rem`), `--spacing-md` (`1rem`), `--spacing-lg` (`2rem`).
 
-### 2. ¿Dónde se utilizó Flexbox?
-* En la cabecera (`.header-contenedor`) y el menú de navegación (`.nav-menu ul`) para distribuir espacialmente los elementos en una dimensión con alineación vertical y centrado.
+### 2. ¿Dónde utilizamos Flexbox?
+- En la cabecera y el menú de navegación (`nav ul`), para distribuir y alinear los enlaces horizontalmente.
+- En los formularios de alta de clientes y nuevo ticket de soporte (`form`), organizando los campos en columnas con espaciados uniformes.
 
-### 3. ¿Dónde se utilizó CSS Grid?
-* En el panel de métricas (`.grid-metricas`), utilizando un diseño bidimensional adaptable con `repeat(4, 1fr)` para distribuir las tarjetas de monitoreo.
+### 3. ¿Dónde utilizamos Grid?
+- En el panel de métricas y resumen de estado (`.grid-metricas` y `dl`), organizando las tarjetas de monitoreo y tickets en cuadrículas que se adaptan con `repeat(auto-fit, minmax(200px, 1fr))`.
 
-### 4. ¿Cómo se implementó el Responsive Design?
-* Se configuró el tamaño base en `html { font-size: 62.5%; }` para trabajar con medidas `rem` accesibles.
-* Se aplicaron **Media Queries** con dos puntos de quiebre (*breakpoints*):
-  * **Tablets ($\le$ 1024px):** El panel de métricas se reorganiza en 2 columnas (`grid-template-columns: repeat(2, 1fr)`).
-  * **Móviles ($\le$ 768px):** El menú y las tarjetas pasan a una única columna vertical con distribución fluida.
+### 4. ¿Cómo implementamos el Responsive Design?
+- Tamaño base en `html { font-size: 62.5%; }` para cálculo accesible en `rem`.
+- **Media Queries:**
+  - **768px (Tablet):** el menú de navegación pasa de fila a columna y las cuadrículas se reorganizan a 1 columna.
+  - **480px (Celular):** ajuste de tipografía en títulos y tablas, con botones ocupando el 100% del ancho para uso táctil.
 
 ---
 
-## 🔍 Estrategias de SEO Implementadas
-1. **Meta Viewport adaptativo:** Preparado para indexación *mobile-first*.
-2. **Meta Descripción y Palabras Clave:** Información descriptiva para los motores de búsqueda.
-3. **Open Graph (`og:`):** Enriquecimiento de metadatos para compartir en redes sociales.
-4. **Estructura Jerárquica:** Correcta jerarquía de encabezados (`<h1>`, `<h2>`).
-5. **Accesibilidad Semántica:** Uso de `<caption>`, `<dl>`, `<dt>`, `<dd>` y `<nav>` para facilitar el rastreo de contenido.
+## Estrategias de SEO Implementadas
+1. `<title>` único y descriptivo por página.
+2. `<meta name="description">` y `<meta name="keywords">` orientadas al servicio de ISP.
+3. `<meta name="viewport">` para diseño adaptativo mobile-first.
+4. Metadatos Open Graph (`og:title`, `og:description`, `og:type`) para redes sociales.
+5. HTML semántico y jerarquía estricta de encabezados (`h1`, `h2`).

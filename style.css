@@ -1,379 +1,407 @@
-/* ==========================================================================
-   1. VARIABLES GLOBALES Y RESET (BOX MODEL)
-   ========================================================================== */
-
 :root {
-    /* Paleta Institucional */
-    --color-primario: #0b2545;       /* Azul Tecnológico Profundo */
-    --color-panel: #13315c;          /* Azul Oscuro de Soporte */
-    --color-acento: #00b4d8;         /* Cyan de Conectividad */
-    --color-fibra: #10b981;          /* Verde Fibra Óptica */
-    --color-alerta: #f59e0b;         /* Ámbar de Advertencia */
-    
-    /* Superficies y Neutros */
-    --color-fondo: #f8fafc;          /* Gris Neutro Claro */
-    --color-tarjeta: #ffffff;        /* Blanco Puro */
-    --color-texto: #1e293b;          /* Carbón de Alto Contraste */
-    --color-texto-suave: #64748b;    /* Gris de Soporte */
-    --color-borde: #e2e8f0;
+  --color-primary: #0a4d68;
+  --color-primario: #0a4d68;
+  --color-secondary: #088395;
+  --color-panel: #088395;
+  --color-accent: #05bfdb;
+  --color-acento: #05bfdb;
+  --color-fibra: #10b981;
+  --color-alerta: #f59e0b;
+  --color-bg: #f4f6f7;
+  --color-fondo: #f4f6f7;
+  --color-white: #ffffff;
+  --color-tarjeta: #ffffff;
+  --color-text: #1e1e1e;
+  --color-texto: #1e1e1e;
+  --color-texto-suave: #64748b;
+  --color-borde: #dddddd;
 
-    /* Tipografías y Medidas */
-    --fuente-base: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --espaciado-pequeno: 0.8rem;
-    --espaciado-medio: 1.6rem;
-    --espaciado-grande: 2.4rem;
-    --radio-borde: 0.8rem;
-    --sombra-suave: 0 4px 12px rgba(11, 37, 69, 0.08);
+  --font-main: 'Segoe UI', system-ui, Arial, sans-serif;
+  --fuente-base: 'Segoe UI', system-ui, Arial, sans-serif;
+  --spacing-sm: 0.5rem;
+  --espaciado-pequeno: 0.5rem;
+  --spacing-md: 1rem;
+  --espaciado-medio: 1rem;
+  --spacing-lg: 2rem;
+  --espaciado-grande: 2rem;
+  --radio-borde: 8px;
+  --sombra-suave: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* Reset de Modelo de Caja y Tipografía Base Accesible (1rem = 10px) */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%; /* Facilita el cálculo: 1.6rem = 16px */
+  font-size: 62.5%;
 }
 
 body {
-    font-family: var(--fuente-base);
-    font-size: 1.6rem;
-    line-height: 1.5;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: var(--font-main);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ==========================================================================
-   2. CABECERA Y NAVEGACIÓN (FLEXBOX UNIDIMENSIONAL)
-   ========================================================================== */
-
+header,
 .header-principal {
-    background-color: var(--color-primario);
-    color: #ffffff;
-    padding: var(--espaciado-medio) var(--espaciado-grande);
-    box-shadow: var(--sombra-suave);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: var(--sombra-suave);
 }
 
 .header-contenedor {
-    max-width: 120rem;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--espaciado-medio);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
 }
 
+header h1,
 .logo-titulo {
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .logo-titulo span {
-    color: var(--color-acento);
+  color: var(--color-accent);
 }
 
+nav ul,
 .nav-menu ul {
-    display: flex;
-    list-style: none;
-    gap: var(--espaciado-medio);
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-md);
 }
 
+nav a,
 .nav-menu a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    padding: var(--espaciado-pequeno) 1.2rem;
-    border-radius: var(--radio-borde);
-    transition: all 0.2s ease-in-out;
+  color: #e0f2fe;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radio-borde);
+  transition: all 0.2s ease-in-out;
 }
 
+nav a:hover,
+nav a.nav-activo,
 .nav-menu a:hover,
 .nav-menu a.nav-activo {
-    color: #ffffff;
-    background-color: rgba(0, 180, 216, 0.2);
-    border-bottom: 2px solid var(--color-acento);
+  color: #ffffff;
+  background-color: var(--color-secondary);
+  border-bottom: 2px solid var(--color-accent);
 }
 
-/* ==========================================================================
-   3. CONTENEDOR PRINCIPAL Y SECCIONES
-   ========================================================================== */
-
+main,
 .main-contenedor {
-    max-width: 120rem;
-    width: 90vw; /* Uso de Viewport Width */
-    margin: var(--espaciado-grande) auto;
-    flex: 1; /* Ocupa el espacio restante empujando el footer */
+  max-width: 1200px;
+  width: 90vw;
+  margin: var(--spacing-lg) auto;
+  flex: 1;
 }
 
+section {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+section h2,
 h2 {
-    font-size: 2rem;
-    color: var(--color-primario);
-    margin-bottom: var(--espaciado-medio);
-    border-left: 4px solid var(--color-fibra);
-    padding-left: var(--espaciado-pequeno);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-accent);
+  border-left: 4px solid var(--color-fibra);
+  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-sm);
 }
 
-/* ==========================================================================
-   4. PANEL DE MÉTRICAS (CSS GRID BIDIMENSIONAL)
-   ========================================================================== */
-
-.seccion-metricas {
-    margin-bottom: var(--espaciado-grande);
-}
-
+dl,
 .grid-metricas {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--espaciado-medio);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
 }
 
 .tarjeta-metrica {
-    background-color: var(--color-tarjeta);
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-borde);
-    padding: var(--espaciado-medio);
-    box-shadow: var(--sombra-suave);
-    border-top: 3px solid var(--color-acento);
+  background-color: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--spacing-md);
+  border-top: 3px solid var(--color-accent);
 }
 
+dl dt,
 .tarjeta-metrica dt {
-    font-size: 1.3rem;
-    color: var(--color-texto-suave);
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: var(--espaciado-pequeno);
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
 }
 
+dl dd,
 .tarjeta-metrica dd {
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: var(--color-primario);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
-.estado-ok {
-    color: var(--color-fibra);
-}
-
-.estado-alerta {
-    color: var(--color-alerta);
-}
-
-/* ==========================================================================
-   5. TABLAS DE DATOS
-   ========================================================================== */
-
-.seccion-tabla {
-    margin-bottom: var(--espaciado-grande);
-}
+.estado-ok { color: var(--color-fibra); }
+.estado-alerta { color: var(--color-alerta); }
 
 .tabla-contenedor {
-    background-color: var(--color-tarjeta);
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-borde);
-    overflow-x: auto;
-    box-shadow: var(--sombra-suave);
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-sm);
 }
 
 caption {
-    font-size: 1.3rem;
-    color: var(--color-texto-suave);
-    padding: var(--espaciado-pequeno) var(--espaciado-medio);
-    text-align: left;
-    font-style: italic;
-    background-color: #f1f5f9;
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  padding: var(--spacing-sm);
+  text-align: left;
+  font-style: italic;
+  font-weight: bold;
 }
 
 th, td {
-    padding: 1.2rem var(--espaciado-medio);
-    border-bottom: 1px solid var(--color-borde);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-borde);
+  text-align: left;
+  font-size: 1.4rem;
 }
 
 th {
-    background-color: #f8fafc;
-    color: var(--color-primario);
-    font-size: 1.4rem;
-    font-weight: 600;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
 }
 
-tbody tr:hover {
-    background-color: #f8fafc;
+tr:nth-child(even) {
+  background-color: #f8fafc;
 }
 
 .badge {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 2rem;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 2rem;
 }
 
 .badge-activo {
-    background-color: rgba(16, 185, 129, 0.15);
-    color: #065f46;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #065f46;
 }
 
 .badge-alerta {
-    background-color: rgba(245, 158, 11, 0.15);
-    color: #92400e;
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #92400e;
 }
 
-/* ==========================================================================
-   6. FORMULARIOS SEMÁNTICOS (CLIENTES Y ALTA)
-   ========================================================================== */
+.planes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
 
-.seccion-formulario {
-    background-color: var(--color-tarjeta);
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-borde);
-    padding: var(--espaciado-grande);
-    box-shadow: var(--sombra-suave);
-    margin-bottom: var(--espaciado-grande);
+.plan-card {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--spacing-lg);
+  text-align: center;
+  background-color: var(--color-white);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(10, 77, 104, 0.15);
+}
+
+.plan-card h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.8rem;
+}
+
+.plan-card .precio {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+}
+
+.plan-card .precio span {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  font-weight: normal;
+}
+
+.plan-card ul {
+  list-style: none;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.plan-card ul li {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.plan-card ul li:last-child {
+  border-bottom: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 fieldset {
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-borde);
-    padding: var(--espaciado-medio);
-    margin-bottom: var(--espaciado-grande);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: var(--spacing-md);
 }
 
 legend {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-primario);
-    padding: 0 var(--espaciado-pequeno);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  padding: 0 var(--spacing-sm);
 }
 
 .grupo-campo {
-    margin-bottom: var(--espaciado-medio);
+  margin-bottom: var(--spacing-sm);
 }
 
 label {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--color-texto);
-    margin-bottom: 0.4rem;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="tel"],
-select {
-    width: 100%;
-    padding: 1rem 1.2rem;
-    font-size: 1.4rem;
-    font-family: inherit;
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-borde);
-    background-color: #f8fafc;
-    color: var(--color-texto);
-    transition: border-color 0.2s ease;
+input, select, textarea {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  font-family: inherit;
+  font-size: 1.4rem;
+  background-color: #ffffff;
 }
 
-input:focus,
-select:focus {
-    outline: none;
-    border-color: var(--color-acento);
-    background-color: #ffffff;
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+  align-self: flex-start;
+  transition: opacity 0.2s ease;
+}
+
+input[type="submit"] { background-color: var(--color-primary); }
+input[type="reset"] { background-color: #94a3b8; color: #ffffff; }
+
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  opacity: 0.9;
 }
 
 .acciones-formulario {
-    display: flex;
-    gap: var(--espaciado-medio);
+  display: flex;
+  gap: var(--spacing-md);
 }
 
-input[type="submit"],
-input[type="reset"] {
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-radius: var(--radio-borde);
-    cursor: pointer;
-    border: none;
-    transition: opacity 0.2s ease;
-}
-
-input[type="submit"] {
-    background-color: var(--color-primario);
-    color: #ffffff;
-}
-
-input[type="reset"] {
-    background-color: #e2e8f0;
-    color: var(--color-texto);
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-    opacity: 0.9;
-}
-
-/* ==========================================================================
-   7. PIE DE PÁGINA
-   ========================================================================== */
-
+footer,
 .footer-principal {
-    background-color: var(--color-panel);
-    color: #cbd5e1;
-    text-align: center;
-    padding: var(--espaciado-medio);
-    font-size: 1.4rem;
-    margin-top: auto;
-}
-
-/* ==========================================================================
-   8. MEDIA QUERIES (RESPONSIVE DESIGN)
-   ========================================================================== */
-
-@media (max-width: 1024px) {
-    .grid-metricas {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  background-color: var(--color-primary);
+  color: #cbd5e1;
+  text-align: center;
+  padding: var(--spacing-md);
+  font-size: 1.4rem;
+  margin-top: auto;
 }
 
 @media (max-width: 768px) {
-    .header-contenedor {
-        flex-direction: column;
-        text-align: center;
-    }
+  .header-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        gap: var(--espaciado-pequeno);
-    }
+  nav ul,
+  .nav-menu ul {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+  }
 
-    .nav-menu a {
-        display: block;
-        width: 100%;
-    }
+  dl,
+  .grid-metricas,
+  .planes-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .grid-metricas {
-        grid-template-columns: 1fr;
-    }
+  main,
+  .main-contenedor {
+    width: 95vw;
+    padding: var(--spacing-md);
+  }
 
-    .main-contenedor {
-        width: 95vw;
-        margin: var(--espaciado-medio) auto;
-    }
+  .acciones-formulario {
+    flex-direction: column;
+  }
+}
 
-    .acciones-formulario {
-        flex-direction: column;
-    }
+@media (max-width: 480px) {
+  header h1,
+  .logo-titulo {
+    font-size: 1.6rem;
+  }
+
+  table, th, td {
+    font-size: 1.2rem;
+    padding: 0.6rem;
+  }
+
+  button,
+  input[type="submit"],
+  input[type="reset"] {
+    width: 100%;
+  }
 }
