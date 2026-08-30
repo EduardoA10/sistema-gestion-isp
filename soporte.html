@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte Técnico - Sistema de Gestión ISP</title>
+    <meta name="description" content="Gestioná tickets de soporte técnico de tus clientes ISP: creación, seguimiento y resolución de incidencias de conexión.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="header-contenedor">
+            <h1 class="logo-titulo">ISP <span>RedTech</span></h1>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="planes.html">Planes</a></li>
+                    <li><a href="soporte.html" class="nav-activo">Soporte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-contenedor">
+        <section class="seccion-metricas">
+            <h2>Estado de Soporte Técnico</h2>
+            <dl class="grid-metricas">
+                <div class="tarjeta-metrica">
+                    <dt>Tickets Abiertos</dt>
+                    <dd class="valor-metrica estado-alerta">8</dd>
+                </div>
+                <div class="tarjeta-metrica">
+                    <dt>Tickets Resueltos (Hoy)</dt>
+                    <dd class="valor-metrica estado-ok">15</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="seccion-tabla">
+            <h2>Tickets Recientes</h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <caption>Listado de Solicitudes de Soporte</caption>
+                    <thead>
+                        <tr>
+                            <th>N° Ticket</th>
+                            <th>Cliente</th>
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1024</td>
+                            <td>Juan Pérez</td>
+                            <td>Sin conexión</td>
+                            <td><span class="badge badge-alerta">En proceso</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion-formulario">
+            <h2>Nuevo Ticket de Soporte</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Detalle de la Incidencia</legend>
+                    <div class="grupo-campo">
+                        <label for="cliente">Cliente:</label>
+                        <input type="text" id="cliente" name="cliente" placeholder="Ej. Juan Pérez" required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="motivo">Motivo:</label>
+                        <select id="motivo" name="motivo" required>
+                            <option value="" disabled selected>Seleccione un motivo...</option>
+                            <option value="sin-conexion">Sin conexión</option>
+                            <option value="lentitud">Lentitud de red</option>
+                            <option value="facturacion">Consulta de facturación</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="descripcion">Descripción del problema:</label>
+                        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Explique brevemente la falla..."></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="acciones-formulario">
+                    <button type="submit">Enviar Ticket</button>
+                    <input type="reset" value="Limpiar">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer-principal">
+        <p>&copy; 2026 ISP RedTech - Cátedra Programación 4. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
