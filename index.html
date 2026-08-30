@@ -1,57 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head> 
+<head>
     <meta charset="UTF-8">
-    <title>Sistema de Gestión ISP</title>
-  </head>
-  <body>
-    <header>
-  <h1>ISP Panel de Control</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="planes.html">Planes</a></li>
-      <li><a href="soporte.html">Soporte</a></li>
-    </ul>
-  </nav>
-</header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <main>
-      <section>
-  <!-- Resumen del Estado de la Red -->
-  <h2>Estado Actual de la Red</h2>
-  <dl>
-    <dt>Usuarios Conectados:</dt>
-    <dd>150</dd>
-    <dt>Tráfico de la Red:</dt>
-    <dd>100 Mbps</dd>
-  </dl>
-<section>
-  <h2>Monitoreo de Nodos</h2>
-  <table>
-    <caption>Estado de los Nodos del Servidor</caption>
-    <tr>
-      <th>Nodo / Zona</th>
-      <th>Estado</th>
-      <th>Latencia</th>
-    </tr>
-    <tr>
-      <td>Nodo Central (Fibra)</td>
-      <td>Operativo</td>
-      <td>12 ms</td>
-    </tr>
-    <!-- Aquí puedes agregar otra fila con un nodo secundario -->
-  </table>
-</section>
+    <title>ISP RedTech - Sistema de Gestión y Monitoreo de Red</title>
+    <meta name="description" content="Panel de administración y monitoreo de infraestructura para proveedores de internet (ISP). Gestión de abonados, tráfico de red y estado de nodos.">
+    <meta name="keywords" content="ISP, gestion de redes, fibra optica, monitoreo de nodos, telecomunicaciones, panel isp">
+    <meta name="author" content="Eduardo Albarracín - Alexis Lencina">
+
+    <meta property="og:title" content="ISP RedTech - Panel de Control">
+    <meta property="og:description" content="Administración integral de abonados y monitoreo en tiempo real de nodos de conectividad.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="header-contenedor">
+            <h1 class="logo-titulo">ISP <span>RedTech</span></h1>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-activo">Inicio</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="planes.html">Planes</a></li>
+                    <li><a href="soporte.html">Soporte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-contenedor">
+        <section class="seccion-metricas">
+            <h2>Estado General del Servicio</h2>
+            <dl class="grid-metricas">
+                <div class="tarjeta-metrica">
+                    <dt>Abonados Conectados</dt>
+                    <dd class="valor-metrica">1,420</dd>
+                </div>
+                <div class="tarjeta-metrica">
+                    <dt>Consumo de Tráfico</dt>
+                    <dd class="valor-metrica">3.8 Gbps</dd>
+                </div>
+                <div class="tarjeta-metrica">
+                    <dt>Nodos Operativos</dt>
+                    <dd class="valor-metrica estado-ok">98.5%</dd>
+                </div>
+                <div class="tarjeta-metrica">
+                    <dt>Tickets Pendientes</dt>
+                    <dd class="valor-metrica estado-alerta">4</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="seccion-tabla">
+            <h2>Monitoreo de Infraestructura</h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <caption>Disponibilidad y latencia por sector de fibra óptica</caption>
+                    <thead>
+                        <tr>
+                            <th>Identificador</th>
+                            <th>Zona / Enlace</th>
+                            <th>Tecnología</th>
+                            <th>Latencia</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NOD-01</td>
+                            <td>Troncal Centro</td>
+                            <td>Fibra GPON</td>
+                            <td>8 ms</td>
+                            <td><span class="badge badge-activo">Operativo</span></td>
+                        </tr>
+                        <tr>
+                            <td>NOD-02</td>
+                            <td>Anillo Norte</td>
+                            <td>Fibra GPON</td>
+                            <td>12 ms</td>
+                            <td><span class="badge badge-activo">Operativo</span></td>
+                        </tr>
+                        <tr>
+                            <td>NOD-03</td>
+                            <td>Subestación Sur</td>
+                            <td>Enlace Microondas</td>
+                            <td>24 ms</td>
+                            <td><span class="badge badge-alerta">Mantenimiento</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
-    <footer>    
-      <p>&copy; 2024 Sistema de Gestión ISP. Todos los derechos reservados.</p> 
+    <footer class="footer-principal">
+        <p>&copy; 2026 ISP RedTech - Cátedra Programación 4. Todos los derechos reservados.</p>
     </footer>
-    </body> 
+
+</body>
 </html>
-
-
-
-
