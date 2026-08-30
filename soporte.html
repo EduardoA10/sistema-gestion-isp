@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte Técnico - Sistema de Gestión ISP</title>
+  <meta name="description" content="Gestioná tickets de soporte técnico de tus clientes ISP: creación, seguimiento y resolución de incidencias de conexión.">
+  <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <header>
+      <h1>ISP Panel de Control</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="clientes.html">Clientes</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Estado de Soporte Técnico</h2>
+        <dl>
+          <dt>Tickets Abiertos:</dt>
+          <dd>8</dd>
+          <dt>Tickets Resueltos (hoy):</dt>
+          <dd>15</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Tickets Recientes</h2>
+        <table>
+          <caption>Listado de Solicitudes de Soporte</caption>
+          <tr>
+            <th>N° Ticket</th>
+            <th>Cliente</th>
+            <th>Motivo</th>
+            <th>Estado</th>
+          </tr>
+          <tr>
+            <td>#1024</td>
+            <td>Juan Pérez</td>
+            <td>Sin conexión</td>
+            <td>En proceso</td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Nuevo Ticket de Soporte</h2>
+        <form>
+          <label for="cliente">Cliente:</label>
+          <input type="text" id="cliente" name="cliente" required>
+
+          <label for="motivo">Motivo:</label>
+          <select id="motivo" name="motivo">
+            <option value="sin-conexion">Sin conexión</option>
+            <option value="lentitud">Lentitud de red</option>
+            <option value="facturacion">Consulta de facturación</option>
+            <option value="otro">Otro</option>
+          </select>
+
+          <label for="descripcion">Descripción del problema:</label>
+          <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+
+          <button type="submit">Enviar Ticket</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Sistema de Gestión ISP. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
