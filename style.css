@@ -15,6 +15,7 @@
   --color-texto: #1e1e1e;
   --color-texto-suave: #64748b;
   --color-borde: #dddddd;
+
   --font-main: 'Segoe UI', system-ui, Arial, sans-serif;
   --fuente-base: 'Segoe UI', system-ui, Arial, sans-serif;
   --spacing-sm: 0.5rem;
@@ -77,13 +78,15 @@ header h1,
   color: var(--color-accent);
 }
 
-nav ul {
+nav ul,
+.nav-menu ul {
   display: flex;
   list-style: none;
   gap: var(--spacing-md);
 }
 
-nav a {
+nav a,
+.nav-menu a {
   color: #e0f2fe;
   text-decoration: none;
   font-size: 1.5rem;
@@ -94,7 +97,9 @@ nav a {
 }
 
 nav a:hover,
-nav a.nav-activo {
+nav a.nav-activo,
+.nav-menu a:hover,
+.nav-menu a.nav-activo {
   color: #ffffff;
   background-color: var(--color-secondary);
   border-bottom: 2px solid var(--color-accent);
@@ -215,7 +220,6 @@ tr:nth-child(even) {
   color: #92400e;
 }
 
-/* Sección Planes (Grid y Tarjetas) */
 .planes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -270,7 +274,6 @@ tr:nth-child(even) {
   border-bottom: none;
 }
 
-/* Formularios */
 form {
   display: flex;
   flex-direction: column;
@@ -345,7 +348,6 @@ input[type="reset"]:hover {
   gap: var(--spacing-md);
 }
 
-/* Footer */
 footer,
 .footer-principal {
   background-color: var(--color-primary);
@@ -356,14 +358,14 @@ footer,
   margin-top: auto;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .header-contenedor {
     flex-direction: column;
     text-align: center;
   }
 
-  nav ul {
+  nav ul,
+  .nav-menu ul {
     flex-direction: column;
     gap: var(--spacing-sm);
     width: 100%;

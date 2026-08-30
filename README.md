@@ -1,85 +1,53 @@
-# Sistema de Gestión de ISP
+# Sistema de Gestión de ISP - TP 2: Interfaz Web y Responsive Design
 
 Proyecto desarrollado para la cátedra de **Programación 4**.
 
 ---
 
-## 👥 Integrantes del Grupo
+## Integrantes del Grupo
 * **Eduardo Albarracín**
 * **Alexis Lencina**
 
+---
+
+## Descripción del Proyecto
+Evolución de la maqueta estructural del sistema ISP hacia una interfaz web completa, responsive y moderna, aplicando estándares de CSS3, variables globales y optimización para motores de búsqueda (SEO).
 
 ---
 
-## 📌 Descripción del Proyecto
-El sistema tiene como objetivo centralizar la administración y monitoreo de un Proveedor de Servicios de Internet (ISP). Permite gestionar la cartera de clientes/abonados, planes de conectividad y el estado general de la infraestructura de red.
+## Tecnologías Utilizadas
+- **HTML5 Semántico** (`header`, `nav`, `main`, `section`, `article`, `dl`, `table`, `form`, `footer`).
+- **CSS3** (Flexbox, CSS Grid, Variables CSS, Box Model, Media Queries).
+- **Git y GitHub** para control de versiones mediante ramas y Pull Requests.
 
 ---
 
-## 🛠️ Alcance del Trabajo Práctico N° 1
-En esta primera entrega se estableció la infraestructura de control de versiones y la maquetación semántica inicial del sitio mediante HTML5:
+## Decisiones de Diseño y Arquitectura CSS
 
-### 1. Estructura y Semántica HTML
-* **`index.html` (Dashboard Principal):**
-  * Cabecera y menú de navegación global (`<header>`, `<nav>`).
-  * Resumen del estado de la red mediante listas de definiciones (`<dl>`).
-  * Monitoreo y estado de nodos mediante tablas de datos (`<table>`, `<caption>`, `<th>`, `<td>`).
-  * Pie de página del sistema (`<footer>`).
+### 1. ¿Qué variables CSS creamos?
+Definidas en `:root` para garantizar coherencia visual:
+- **Colores:** `--color-primary` (`#0a4d68`), `--color-secondary` (`#088395`), `--color-accent` (`#05bfdb`), `--color-fibra` (`#10b981`), `--color-bg` (`#f4f6f7`), `--color-text` (`#1e1e1e`).
+- **Tipografía:** `--font-main` (`Segoe UI, Arial, sans-serif`).
+- **Espaciados:** `--spacing-sm` (`0.5rem`), `--spacing-md` (`1rem`), `--spacing-lg` (`2rem`).
 
-* **`clientes.html` (Gestión de Abonados):**
-  * Tabla con la nómina de clientes activos y sus estados de conexión.
-  * Formulario estructurado para el alta de nuevos clientes (`<form>`), organizado por módulos lógicos mediante `<fieldset>` y `<legend>`.
-  * Validaciones nativas de HTML5 (`required`, `type="email"`, `type="number"`) y menú desplegable de selección de planes (`<select>`, `<option>`).
+### 2. ¿Dónde utilizamos Flexbox?
+- En la cabecera y el menú de navegación (`nav ul`), para distribuir y alinear los enlaces horizontalmente.
+- En los formularios de alta de clientes y nuevo ticket de soporte (`form`), organizando los campos en columnas con espaciados uniformes.
 
----
+### 3. ¿Dónde utilizamos Grid?
+- En el panel de métricas y resumen de estado (`.grid-metricas` y `dl`), organizando las tarjetas de monitoreo y tickets en cuadrículas que se adaptan con `repeat(auto-fit, minmax(200px, 1fr))`.
 
-## 🌳 Estrategia de Ramas en Git
-El flujo de trabajo colaborativo se organizó bajo las siguientes pautas:
-* **`main`**: Rama de producción con versiones estables.
-* **`dev`**: Rama principal de desarrollo e integración continua.
-* **`feature/*`**: Ramas de trabajo temporales para el desarrollo de módulos específicos (ej. `feature/maquetacion-inicial`, `feature/modulo-clientes`).
+### 4. ¿Cómo implementamos el Responsive Design?
+- Tamaño base en `html { font-size: 62.5%; }` para cálculo accesible en `rem`.
+- **Media Queries:**
+  - **768px (Tablet):** el menú de navegación pasa de fila a columna y las cuadrículas se reorganizan a 1 columna.
+  - **480px (Celular):** ajuste de tipografía en títulos y tablas, con botones ocupando el 100% del ancho para uso táctil.
 
 ---
 
-## 🎨 Trabajo Práctico N° 2: Estilos, Responsive Design y SEO
-
-Se incorporó el archivo `style.css`, aplicando diseño visual completo al sitio 
-mediante Flexbox, Grid, variables CSS y diseño responsive.
-
-### Tecnologías utilizadas
-- HTML5 semántico
-- CSS3 (Flexbox, Grid, Variables CSS, Media Queries)
-- Git y GitHub para control de versiones
-
-### ¿Dónde utilizamos Flexbox?
-- En el menú de navegación (`nav ul`), para alinear los links horizontalmente 
-  con espaciado uniforme.
-- En el formulario de "Nuevo Ticket de Soporte" (`form`), organizando los 
-  campos en columna para una lectura más clara.
-
-### ¿Dónde utilizamos Grid?
-- En el resumen de estado (`dl` de `soporte.html`), que muestra "Tickets 
-  Abiertos" y "Tickets Resueltos" en columnas que se adaptan automáticamente 
-  al ancho de pantalla (`grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))`).
-
-### ¿Qué variables CSS creamos?
-Se definieron variables en `:root` para mantener consistencia visual en todo el sitio:
-- Colores: `--color-primary`, `--color-secondary`, `--color-accent`, 
-  `--color-bg`, `--color-white`, `--color-text`
-- Tipografía: `--font-main`
-- Espaciados: `--spacing-sm`, `--spacing-md`, `--spacing-lg`
-
-### ¿Cómo implementamos el Responsive Design?
-Mediante Media Queries en dos breakpoints:
-- **768px (tablet):** el menú de navegación pasa de fila a columna, y el 
-  grid de resumen pasa de varias columnas a una sola.
-- **480px (celular):** se reduce el tamaño de fuente de títulos y tabla, y 
-  el botón del formulario ocupa el 100% del ancho para facilitar el uso táctil.
-
-### SEO
-Se implementaron 5 estrategias de SEO:
+## Estrategias de SEO Implementadas
 1. `<title>` único y descriptivo por página.
-2. `<meta name="description">` con palabras clave relevantes.
-3. HTML semántico (`header`, `nav`, `main`, `section`, `footer`).
-4. Jerarquía correcta de encabezados (`h1` único, `h2` por sección).
-5. `<meta name="viewport">` para diseño mobile-friendly.
+2. `<meta name="description">` y `<meta name="keywords">` orientadas al servicio de ISP.
+3. `<meta name="viewport">` para diseño adaptativo mobile-first.
+4. Metadatos Open Graph (`og:title`, `og:description`, `og:type`) para redes sociales.
+5. HTML semántico y jerarquía estricta de encabezados (`h1`, `h2`).
