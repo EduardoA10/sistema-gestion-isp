@@ -1,62 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planes - Sistema de Gestión ISP</title>
-    <meta name="description" content="Conocé los planes de conectividad disponibles para tus clientes ISP: velocidades, precios y características.">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ISP MANAGER - Planes Disponibles</title>
+    <meta
+      name="description"
+      content="Conocé los planes de conectividad disponibles para tus clientes ISP: velocidades, precios y características."
+    />
+    <meta name="author" content="Eduardo Albarracín - Alexis Lencina" />
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Estilos locales -->
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100 bg-light">
     <header>
-      <h1>ISP Panel de Control</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="clientes.html">Clientes</a></li>
-          <li><a href="planes.html">Planes</a></li>
-          <li><a href="soporte.html">Soporte</a></li>
-        </ul>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-isp-primary shadow-sm py-3"
+      >
+        <div class="container">
+          <a class="navbar-brand fw-bold fs-4" href="index.html">
+            <i class="bi bi-router text-info me-1"></i> ISP
+            <span class="text-info">MANAGER</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navGlobal"
+            aria-controls="navGlobal"
+            aria-expanded="false"
+            aria-label="Abrir navegación"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navGlobal">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="clientes.html">Clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="planes.html"
+                  >Planes</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="soporte.html">Soporte</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
-    <main>
+
+    <main class="container my-4 flex-grow-1">
       <section>
-        <h2>Planes Disponibles</h2>
-        <div class="planes-grid">
-          <article class="plan-card">
-            <h3>Plan Básico</h3>
-            <p class="precio">$8.000<span>/mes</span></p>
-            <ul>
-              <li>50 Mbps de velocidad</li>
-              <li>Ideal para 1-2 dispositivos</li>
-              <li>Soporte técnico estándar</li>
-            </ul>
-          </article>
+        <div
+          class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2"
+        >
+          <h2 class="h4 text-dark mb-0 fw-bold">Planes Disponibles</h2>
+        </div>
 
-          <article class="plan-card">
-            <h3>Plan Hogar</h3>
-            <p class="precio">$12.000<span>/mes</span></p>
-            <ul>
-              <li>150 Mbps de velocidad</li>
-              <li>Ideal para 3-5 dispositivos</li>
-              <li>Soporte técnico prioritario</li>
-            </ul>
-          </article>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card plan-card h-100 shadow-sm text-center">
+              <div class="card-body d-flex flex-column">
+                <h3 class="h5 fw-bold text-isp-primary">Plan Básico</h3>
+                <p class="display-6 fw-bold text-info mb-0">$8.000</p>
+                <p class="text-secondary small mb-3">/mes</p>
+                <ul class="list-group list-group-flush text-start mb-3">
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>50 Mbps de
+                    velocidad
+                  </li>
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>Ideal para
+                    1-2 dispositivos
+                  </li>
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>Soporte
+                    técnico estándar
+                  </li>
+                </ul>
+                <button class="btn btn-outline-primary mt-auto">
+                  Elegir Plan
+                </button>
+              </div>
+            </div>
+          </div>
 
-          <article class="plan-card">
-            <h3>Plan Premium</h3>
-            <p class="precio">$18.000<span>/mes</span></p>
-            <ul>
-              <li>300 Mbps de velocidad</li>
-              <li>Ideal para hogares con alto consumo</li>
-              <li>Soporte técnico 24/7</li>
-            </ul>
-          </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card plan-card plan-destacado h-100 shadow border-0 text-center">
+              <div class="card-body d-flex flex-column">
+                <span class="badge text-bg-info align-self-center mb-2"
+                  >Más elegido</span
+                >
+                <h3 class="h5 fw-bold text-isp-primary">Plan Hogar</h3>
+                <p class="display-6 fw-bold text-info mb-0">$12.000</p>
+                <p class="text-secondary small mb-3">/mes</p>
+                <ul class="list-group list-group-flush text-start mb-3">
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>150 Mbps de
+                    velocidad
+                  </li>
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>Ideal para
+                    3-5 dispositivos
+                  </li>
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>Soporte
+                    técnico prioritario
+                  </li>
+                </ul>
+                <button class="btn btn-primary mt-auto">Elegir Plan</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card plan-card h-100 shadow-sm text-center">
+              <div class="card-body d-flex flex-column">
+                <h3 class="h5 fw-bold text-isp-primary">Plan Premium</h3>
+                <p class="display-6 fw-bold text-info mb-0">$18.000</p>
+                <p class="text-secondary small mb-3">/mes</p>
+                <ul class="list-group list-group-flush text-start mb-3">
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>300 Mbps de
+                    velocidad
+                  </li>
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>Ideal para
+                    hogares con alto consumo
+                  </li>
+                  <li class="list-group-item">
+                    <i class="bi bi-check2 text-success me-2"></i>Soporte
+                    técnico 24/7
+                  </li>
+                </ul>
+                <button class="btn btn-outline-primary mt-auto">
+                  Elegir Plan
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2024 Sistema de Gestión ISP. Todos los derechos reservados.</p>
+
+    <footer class="bg-isp-primary text-secondary py-3 text-center border-top">
+      <div class="container">
+        <p class="mb-0 text-light small">
+          &copy; 2026 ISP MANAGER - Cátedra Programación 4. Todos los derechos
+          reservados.
+        </p>
+      </div>
     </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
