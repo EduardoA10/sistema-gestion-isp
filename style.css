@@ -1,3 +1,4 @@
+/*
 :root {
   --color-primary: #0a4d68;
   --color-primario: #0a4d68;
@@ -404,4 +405,61 @@ footer,
   input[type="reset"] {
     width: 100%;
   }
+}
+  */
+:root {
+  --isp-primary: #0a4d68;
+  --isp-secondary: #088395;
+  --isp-accent: #05bfdb;
+  --isp-bg: #f8fafc;
+}
+
+body {
+  background-color: var(--isp-bg);
+  color: #1e293b;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* Navbar institucional */
+.bg-isp-primary {
+  background-color: var(--isp-primary) !important;
+}
+
+.navbar .nav-link {
+  color: #cbd5e1;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--isp-accent);
+}
+
+/* Tarjetas métricas con borde superior distintivo */
+.card-metric {
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid var(--isp-secondary);
+  border-radius: 0.5rem;
+}
+
+.card-metric.border-alert {
+  border-top-color: #f59e0b;
+}
+
+.card-metric.border-ok {
+  border-top-color: #10b981;
+}
+
+footer {
+  margin-top: auto;
 }
