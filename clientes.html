@@ -75,18 +75,38 @@
 
     <!-- Contenido Principal -->
     <main class="container my-4 flex-grow-1">
+      <!-- Contenedor dinámico de alertas generado por JS -->
+      <div id="alerta-cliente-contenedor"></div>
+
       <!-- Tabla de Clientes Activos -->
       <section class="mb-5">
         <div class="card shadow-sm border">
           <div
-            class="card-header bg-white py-3 d-flex justify-content-between align-items-center"
+            class="card-header bg-white py-3 d-flex flex-wrap justify-content-between align-items-center gap-2"
           >
-            <h2 class="h5 mb-0 fw-bold text-dark">
-              Nómina de Abonados Activos
-            </h2>
-            <span class="badge bg-secondary-subtle text-secondary-emphasis"
-              >3 registrados</span
-            >
+            <div class="d-flex align-items-center gap-2">
+              <h2 class="h5 mb-0 fw-bold text-dark">
+                Nómina de Abonados Activos
+              </h2>
+              <span
+                id="contador-clientes"
+                class="badge bg-secondary-subtle text-secondary-emphasis"
+                >3 registrados</span
+              >
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text bg-light"
+                  ><i class="bi bi-search"></i
+                ></span>
+                <input
+                  type="search"
+                  id="buscar-cliente"
+                  class="form-control"
+                  placeholder="Buscar abonado, DNI o IP..."
+                />
+              </div>
+            </div>
           </div>
           <div class="card-body p-0">
             <div class="table-responsive">
@@ -104,7 +124,7 @@
                     <th scope="col" class="pe-3">Estado</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabla-clientes-body">
                   <tr>
                     <td class="ps-3 fw-semibold text-secondary">#1001</td>
                     <td class="fw-medium">Juan Manuel Gómez</td>
@@ -170,7 +190,7 @@
             <h2 class="h5 mb-0 fw-bold text-dark">Alta de Nuevo Cliente</h2>
           </div>
           <div class="card-body p-4">
-            <form action="#" method="post">
+            <form id="form-nuevo-cliente" action="#" method="post">
               <!-- Fieldset 1: Datos Personales -->
               <fieldset class="mb-4">
                 <legend
@@ -330,5 +350,8 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <!-- JavaScript del Proyecto (TP4) -->
+    <script src="js/main.js"></script>
   </body>
 </html>
