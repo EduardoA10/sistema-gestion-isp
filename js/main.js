@@ -127,4 +127,169 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  
+  // ----------------------------------------------------------------------
+  // 5. SOPORTE (soporte.html): Filtro en vivo de tickets
+  // ----------------------------------------------------------------------
+  const inputBuscarTicket = document.getElementById("buscar-ticket");
+  const tablaTickets = document.getElementById("tabla-tickets-body");
+
+  if (inputBuscarTicket && tablaTickets) {
+    inputBuscarTicket.addEventListener("input", (e) => {
+      const criterio = e.target.value.toLowerCase().trim();
+      const filas = tablaTickets.querySelectorAll("tr");
+
+      filas.forEach((fila) => {
+        const texto = fila.textContent.toLowerCase();
+        fila.style.display = texto.includes(criterio) ? "" : "none";
+      });
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // 6. SOPORTE (soporte.html): Alta dinámica de tickets
+  // ----------------------------------------------------------------------
+  const formNuevoTicket = document.getElementById("form-nuevo-ticket");
+  const contadorAbiertos = document.getElementById(
+    "contador-tickets-abiertos",
+  );
+  const alertaTicket = document.getElementById("alerta-ticket-contenedor");
+
+  let totalAbiertos = contadorAbiertos
+    ? parseInt(contadorAbiertos.textContent, 10)
+    : 8;
+  let proximoTicket = 1025;
+
+  if (formNuevoTicket && tablaTickets) {
+    formNuevoTicket.addEventListener("submit", (e) => {
+      e.preventDefault(); // Previene el refresco del navegador
+
+      const cliente = document.getElementById("cliente").value.trim();
+      const motivoSelect = document.getElementById("motivo");
+      const motivoTexto =
+        motivoSelect.options[motivoSelect.selectedIndex].text;
+
+      // Creación dinámica de la fila en el DOM
+      const nuevaFila = document.createElement("tr");
+      nuevaFila.innerHTML = `
+                <td class="ps-3 fw-medium">#${proximoTicket}</td>
+                <td>${cliente}</td>
+                <td>${motivoTexto}</td>
+                <td class="pe-3">
+                    <span class="badge text-bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">En proceso</span>
+                    <button type="button" class="btn btn-sm btn-outline-success ms-2 btn-resolver-ticket">
+                        <i class="bi bi-check2"></i> Resolver
+                    </button>
+                </td>
+            `;
+
+      tablaTickets.appendChild(nuevaFila);
+
+      totalAbiertos++;
+      proximoTicket++;
+      if (contadorAbiertos) {
+        contadorAbiertos.textContent = totalAbiertos;
+      }
+
+      // Inyección dinámica de notificación
+      if (alertaTicket) {
+        alertaTicket.innerHTML = `
+                    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        Ticket <strong>#${proximoTicket - 1}</strong> creado correctamente para <strong>${cliente}</strong>.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                    </div>
+                `;
+
+        setTimeout(() => {
+          alertaTicket.innerHTML = "";
+        }, 4000);
+      }
+
+      formNuevoTicket.reset();
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // 7. SOPORTE (soporte.html): Resolver ticket con delegación de eventos
+  // ----------------------------------------------------------------------
+  const contadorResueltos = document.getElementById(
+    "contador-tickets-resueltos",
+  );
+
+  if (tablaTickets) {
+    tablaTickets.addEventListener("click", (e) => {
+      const boton = e.target.closest(".btn-resolver-ticket");
+      if (!boton) return;
+
+      const fila = boton.closest("tr");
+      const celdaEstado = boton.parentElement;
+
+      celdaEstado.innerHTML = `<span class="badge text-bg-success-subtle text-success border border-success-subtle px-2 py-1">Resuelto</span>`;
+
+      totalAbiertos--;
+      if (contadorAbiertos) contadorAbiertos.textContent = totalAbiertos;
+
+      if (contadorResueltos) {
+        const resueltosActual = parseInt(contadorResueltos.textContent, 10);
+        contadorResueltos.textContent = resueltosActual + 1;
+      }
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // 8. PLANES (planes.html): Selección visual de plan
+  // ----------------------------------------------------------------------
+  const botonesElegirPlan = document.querySelectorAll(".btn-elegir-plan");
+  const alertaPlan = document.getElementById("alerta-plan-contenedor");
+
+  botonesElegirPlan.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const tarjeta = boton.closest(".plan-card");
+      const nombrePlan = tarjeta.dataset.plan;
+
+      // Quita la selección previa de todas las tarjetas
+      document.querySelectorAll(".plan-card").forEach((card) => {
+        card.classList.remove("plan-seleccionado");
+      });
+      tarjeta.classList.add("plan-seleccionado");
+
+      if (alertaPlan) {
+        alertaPlan.innerHTML = `
+                    <div class="alert alert-info alert-dismissible fade show shadow-sm" role="alert">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        Seleccionaste el <strong>Plan ${nombrePlan}</strong>. Un asesor se pondrá en contacto para confirmar la instalación.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                    </div>
+                `;
+
+        setTimeout(() => {
+          alertaPlan.innerHTML = "";
+        }, 5000);
+      }
+    });
+  });
+
+  // ----------------------------------------------------------------------
+  // 9. PLANES (planes.html): Toggle de facturación mensual / anual
+  // ----------------------------------------------------------------------
+  const toggleFacturacion = document.getElementById("toggle-facturacion");
+
+  if (toggleFacturacion) {
+    toggleFacturacion.addEventListener("change", (e) => {
+      const esAnual = e.target.checked;
+      const tarjetasPlan = document.querySelectorAll(".plan-card");
+
+      tarjetasPlan.forEach((tarjeta) => {
+        const precioTexto = tarjeta.querySelector(".precio-plan");
+        const precio = esAnual
+          ? tarjeta.dataset.precioAnual
+          : tarjeta.dataset.precioMensual;
+
+        const precioFormateado = Number(precio).toLocaleString("es-AR");
+        precioTexto.textContent = `$${precioFormateado}`;
+      });
+    });
+  }
 });
