@@ -81,3 +81,15 @@ Definidas en `:root` para garantizar coherencia visual:
 ### 3. Preservación de Código Anterior
 
 El código CSS puro desarrollado durante el TP 2 fue conservado en su totalidad dentro de `style.css` mediante bloques de comentarios multi-línea, agregando únicamente variables y transiciones complementarias para la identidad de ISP MANAGER.
+
+## TP 4: Interactividad con JavaScript y Manipulación del DOM
+
+### 1. Estrategia de Ramas y Git Flow
+- `feature/interactividad-home-clientes`: Búsqueda en tiempo real sobre la tabla de infraestructura, simulación de tráfico en vivo, registro interactivo de clientes (`submit`), renderizado dinámico de filas (`createElement`/`appendChild`), contador reactivo y alertas temporales.
+- `feature/interactividad-planes-soporte`: Mesa de tickets interactiva con resolución por delegación de eventos (`e.target.closest`), sincronización de contadores (abiertos vs. resueltos) y cotizador con switch de facturación mensual/anual mediante atributos `data-*`.
+
+### 2. Conceptos Técnicos Implementados
+- **Ciclo de vida:** Todo el código interactivo se ejecuta bajo el evento `DOMContentLoaded`.
+- **Eventos:** Captura de eventos `input` (búsqueda reactiva), `submit` (prevención de recarga nativa con `e.preventDefault()`), `change` (toggle switch) y `click` (selección y botones).
+- **Manipulación del DOM:** Creación e inyección de elementos en tablas (`tbody`), formateo de moneda con `toLocaleString('es-AR')`, manipulación de atributos y feedback visual mediante alertas temporales.
+- **Delegación de eventos:** Control de resolución de tickets escuchando el evento directamente desde el contenedor padre para dar soporte a elementos insertados dinámicamente.
